@@ -11,7 +11,7 @@ function Game() {
 function gameUpgrades() {
     let payout = 0;
     if (model.autoClicker.amount > 0) {
-        payout += (model.autoClicker.amount * model.autoClicker.strength);
+        payout += (model.autoClicker.amount * model.autoClicker.strength) / 1;
     }
     return payout;
 }
