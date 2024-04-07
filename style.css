@@ -6,14 +6,14 @@ body {
 .clickDiv {
     width: 15rem;
     height: 15rem;
-    background-color: hsl(0, 59%, 41%);
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
 }
 
+
 .clickDiv:hover {
-    background-color: hsl(0, 59%, 51%);
+    filter: brightness(80%);
 }
 
 .playerMoney {
@@ -21,8 +21,12 @@ body {
     margin: 3rem;
 }
 
-.container {
+.viewContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.upgradesContainer {
+    margin-top: 3rem;
 }
