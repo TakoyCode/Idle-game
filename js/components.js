@@ -1,6 +1,6 @@
 function updateView() {
     if (model.app.page == null) mainView();
-    else if (model.app.page == "buffs") buffsView();
+    else if (model.app.page == "upgrades") upgradesView();
 }
 
 function findUpgrade(upgradeId) {
@@ -26,4 +26,9 @@ function findBuff(buffId) {
         }
     }
     return null
+}
+
+function changeView(view) {
+    model.app.page = view;
+    updateView();
 }

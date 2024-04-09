@@ -6,7 +6,7 @@ const model = {
     },
 
     player: {
-        money: 0,
+        money: 1000,
         totalMoneyEarned: 0,
         clicker: {
             cursorStrength: 1,

@@ -3,17 +3,34 @@ body {
     margin: 0;
 }
 
-.clickDiv {
+.clickableImg {
+    position: absolute;
     width: 15rem;
     height: 15rem;
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
+    z-index: 1;
+    margin-top: -9.5rem;
+    margin-left: 2.5rem;
 }
 
+.clickableImg:hover {
+    filter: brightness(110%);
+    box-shadow: -1rem -1rem 3rem 1rem rgba(137, 43, 226, 0.3);
+    background-color: rgba(137, 43, 226, 0.22);
+}
 
-.clickDiv:hover {
-    filter: brightness(80%);
+.orbPedestal {
+    position: relative;
+    scale: 70%;
+    z-index: 0;
+}
+
+.orbImgContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
 }
 
 .playerMoney {
@@ -27,14 +44,11 @@ body {
     align-items: center;
 }
 
-.upgradesContainer {
-    margin-top: 3rem;
-}
-
 .navBar {
     width: 100%;
     height: 5rem;
     background-color: lightgrey;
+
 
     display: flex;
     align-items: center;
@@ -45,4 +59,17 @@ body {
     width: 6rem;
     height: 3rem;
     margin: 2rem;
+}
+
+.buff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.upgradesContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
