@@ -29,7 +29,7 @@ function createCounterAndClickableCircleHtml() {
     return /*HTML*/ `
         <div class="playerMoney">${Math.floor(model.player.money)} p</div>
         <img onmouseenter="clickDivEnter()" onmouseout="clickDivOut()" class="clickDiv" 
-        src="img/orb.png" draggable="false"/>
+        src="/img/orb.png" draggable="false"/>
     `;
 }
 
