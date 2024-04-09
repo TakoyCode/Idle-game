@@ -1,6 +1,9 @@
 // Modell
 
 const model = {
+    app: {
+        page: null,
+    },
 
     player: {
         money: 0,
@@ -22,8 +25,8 @@ const model = {
     },
 
     buffs: {
-        autoClicker: {
-            strengthMultiplier1: {
+        autoClicker: [
+            strengthMultiplier1 = {
                 id: 1,
                 categoryId: 1,
                 name: "Small Orb",
@@ -32,7 +35,7 @@ const model = {
                 unlocked: false,
                 buff: 2,
             },
-            strengthMultiplier2: {
+            strengthMultiplier2 = {
                 id: 2,
                 categoryId: 1,
                 name: "Medium Orb",
@@ -41,7 +44,7 @@ const model = {
                 unlocked: false,
                 buff: 4,
             },
-            strengthMultiplier3: {
+            strengthMultiplier3 = {
                 id: 3,
                 categoryId: 1,
                 name: "Large Orb",
@@ -50,7 +53,7 @@ const model = {
                 unlocked: false,
                 buff: 8,
             },
-            strengthMultiplier4: {
+            strengthMultiplier4 = {
                 id: 4,
                 categoryId: 1,
                 name: "Extra-Large Orb",
@@ -59,7 +62,7 @@ const model = {
                 unlocked: false,
                 buff: 16,
             },
-            strengthMultiplier5: {
+            strengthMultiplier5 = {
                 id: 5,
                 categoryId: 1,
                 name: "Giant Orb",
@@ -68,7 +71,7 @@ const model = {
                 unlocked: false,
                 buff: 32,
             },
-        },
+        ],
     },
 
 };

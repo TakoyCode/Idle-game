@@ -1,17 +1,28 @@
 // View
-updateView();
-function updateView() {
+function mainView() {
     const app = document.getElementById('app');
     let html = ``;
 
     html += /*HTML*/ `
     <div class="viewContainer">
+        ${createNavBar()}
         ${createCounterAndClickableCircleHtml()}
         ${createUpgradesHtml()}
         ${createBuffHtml()}
     </div>
     `;
     app.innerHTML = html;
+}
+
+function createNavBar() {
+    return /*HTML*/`
+    
+        <div class="navBar">
+            <button>Main</button>
+            <button>Upgrades</button>
+        </div>
+    
+    `;
 }
 
 function createCounterAndClickableCircleHtml() {
@@ -46,8 +57,8 @@ function createBuffHtml() {
                 html += /*HTML*/ `
             <div style="display:flex; flex-direction: column; justify-content:center; text-align: center;">
                 <div>${buff.name}</div>
+                <div>Autoclicker +100%</div>
                 <div>${buff.price} p</div>
-                <div>${buff.amountCriteria} p</div>
                 <button onmousedown="buyBuff(${buff.id},${buff.categoryId})">Buy</button>
             </div>
             `;
@@ -56,5 +67,4 @@ function createBuffHtml() {
     }
     return html;
 }
-
 
