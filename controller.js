@@ -5,23 +5,15 @@ function Game() {
     let payout = 0;
     payout += gameUpgrades();
     model.player.money += payout;
-    // checkUnlocks();
     if (payout > 0) updateView();
 }
 
 function gameUpgrades() {
     let payout = 0;
-    if (model.autoClicker.amount > 0) {
-        payout += (model.autoClicker.amount * model.autoClicker.strength) / 10;
+    if (model.upgrades.autoClicker.amount > 0) {
+        payout += (model.upgrades.autoClicker.amount * model.upgrades.autoClicker.strength) / 10;
     }
     return payout;
-}
-
-function checkUnlocks() {
-    for (const key in model.buffs.autoClicker) {
-        model.buffs.autoClicker[key]
-    };
-
 }
 
 function clickDivEnter() {
@@ -40,11 +32,48 @@ function clickDivOut() {
 }
 
 function buyAutoClicker() {
-    let autoClicker = model.autoClicker;
+    let autoClicker = model.upgrades.autoClicker;
     if (model.player.money < autoClicker.price) return;
 
     model.player.money = model.player.money - autoClicker.price;
     autoClicker.amount++;
-    autoClicker.price = autoClicker.price + Math.floor((autoClicker.price / 2) * Math.exp(1));
+    autoClicker.price = autoClicker.price + Math.floor((autoClicker.price / 10) * Math.exp(1));
     updateView();
+}
+
+function buyBuff(buffiD, upgradeId) {
+    const buff = findBuff(buffiD);
+    const upgrade = findUpgrade(upgradeId);
+
+    if (model.player.money < buff.price && buff.unlocked) return;
+    model.player.money -= buff.price;
+    upgrade.strength = buff.buff;
+    buff.unlocked = true;
+    updateView();
+}
+
+
+function findUpgrade(upgradeId) {
+    for (let upgrade in model.upgrades) {
+
+        if (model.upgrades[upgrade].id == upgradeId) {
+            return model.upgrades[upgrade];
+        }
+    }
+    return null;
+}
+
+function findBuff(buffId) {
+    for (let buffCategory in model.buffs) {
+        const buffCategoryObj = model.buffs[buffCategory];
+
+        for (let buff in buffCategoryObj) {
+            const buffObj = buffCategoryObj[buff];
+
+            if (buffObj.id == buffId) {
+                return buffObj;
+            }
+        }
+    }
+    return null
 }
