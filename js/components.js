@@ -30,3 +30,7 @@ function changeView(view) {
     model.app.page = view;
     updateView();
 }
+
+function saveGame() {
+    localStorage.setItem('model', JSON.stringify(model));
+}

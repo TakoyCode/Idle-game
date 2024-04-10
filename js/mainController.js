@@ -6,6 +6,7 @@ function Game() {
     payout += gameUpgrades();
     model.player.money += payout;
     if (payout > 0) updateView();
+    saveGame();
 }
 
 function gameUpgrades() {

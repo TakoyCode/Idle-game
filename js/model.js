@@ -1,6 +1,5 @@
 // Modell
-
-const model = {
+const startmodel = {
     app: {
         page: null,
     },
@@ -75,3 +74,6 @@ const model = {
     ],
 
 };
+
+const savedmodel = JSON.parse(localStorage.getItem('model'));
+const model = savedmodel ? savedmodel : startmodel;
