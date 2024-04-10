@@ -4,24 +4,22 @@ function updateView() {
 }
 
 function findUpgrade(upgradeId) {
-    for (let upgrade in model.upgrades) {
+    for (let upgrade of model.upgrades) {
 
-        if (model.upgrades[upgrade].id == upgradeId) {
-            return model.upgrades[upgrade];
+        if (upgrade.id == upgradeId) {
+            return upgrade;
         }
     }
     return null;
 }
 
 function findBuff(buffId) {
-    for (let buffCategory in model.buffs) {
-        const buffCategoryObj = model.buffs[buffCategory];
+    for (let buffCategory of model.buffs) {
 
-        for (let buff in buffCategoryObj) {
-            const buffObj = buffCategoryObj[buff];
+        for (let buff of buffCategory) {
 
-            if (buffObj.id == buffId) {
-                return buffObj;
+            if (buff.id == buffId) {
+                return buff;
             }
         }
     }

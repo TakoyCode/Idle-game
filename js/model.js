@@ -6,7 +6,7 @@ const model = {
     },
 
     player: {
-        money: 1000,
+        money: 0,
         totalMoneyEarned: 0,
         clicker: {
             cursorStrength: 1,
@@ -15,17 +15,17 @@ const model = {
         },
     },
 
-    upgrades: {
-        autoClicker: {
+    upgrades: [
+        autoClicker = {
             id: 1,
             amount: 0,
             price: 5,
             strength: 1,
         },
-    },
+    ],
 
-    buffs: {
-        autoClicker: [
+    buffs: [
+        autoClicker = [
             strengthMultiplier1 = {
                 id: 1,
                 categoryId: 1,
@@ -72,6 +72,6 @@ const model = {
                 buff: 32,
             },
         ],
-    },
+    ],
 
 };

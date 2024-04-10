@@ -17,8 +17,8 @@ function createNavBar() {
     return /*HTML*/`
     
         <div class="navBar">
-            <button onmousedown="changeView(${null})">Main</button>
-            <button onmousedown="changeView('upgrades')">Upgrades</button>
+            <button onmousedown="changeView(${null})" ${model.app.page == null ? "disabled" : ""}>Main</button>
+            <button onmousedown="changeView('upgrades')" ${model.app.page == "upgrades" ? "disabled" : ""}>Upgrades</button>
         </div>
     
     `;
@@ -36,12 +36,13 @@ function createCounterAndClickableCircleHtml() {
 }
 
 function createUpgradesHtml() {
+    const autoClicker = model.upgrades[0];
     html = "";
     html += /*HTML*/ `
         <div class="upgradesContainer">
-            <div>${model.upgrades.autoClicker.amount} Pylons</div>
-            <div>${model.upgrades.autoClicker.amount * model.upgrades.autoClicker.strength} Mana pr. sec</div>
-            <div>Price: ${model.upgrades.autoClicker.price} Mana</div>
+            <div>${autoClicker.amount} Pylons</div>
+            <div>${autoClicker.amount * autoClicker.strength} Mana pr. sec</div>
+            <div>Price: ${autoClicker.price} Mana</div>
             <button onmousedown="buyAutoClicker()">Buy Pylons</button>
         </div>
     `;

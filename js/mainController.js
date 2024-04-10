@@ -10,8 +10,9 @@ function Game() {
 
 function gameUpgrades() {
     let payout = 0;
-    if (model.upgrades.autoClicker.amount > 0) {
-        payout += (model.upgrades.autoClicker.amount * model.upgrades.autoClicker.strength) / 10;
+    const autoClicker = model.upgrades[0];
+    if (autoClicker.amount > 0) {
+        payout += (autoClicker.amount * autoClicker.strength) / 10;
     }
     return payout;
 }
@@ -32,7 +33,7 @@ function clickDivOut() {
 }
 
 function buyAutoClicker() {
-    let autoClicker = model.upgrades.autoClicker;
+    const autoClicker = model.upgrades[0];
     if (model.player.money < autoClicker.price) return;
 
     model.player.money = model.player.money - autoClicker.price;
