@@ -4,49 +4,55 @@ function mainView() {
     let html = ``;
 
     html += /*HTML*/ `
-    <div class="viewContainer">
-        ${createNavBar()}
-        ${createCounterAndClickableCircleHtml()}
-        ${createUpgradesHtml()}
+    <div class="centerHorizontally">
+            ${createNavBar()}
+            <div style="display: flex;">
+                ${createUpgradesHtml()}
+                <div class="centerHorizontally">
+                ${createManaCounterHtml()}
+                ${createClickableOrbHtml()}
+                </div>
+            </div>
     </div>
     `;
     app.innerHTML = html;
 }
 
-function createNavBar() {
-    return /*HTML*/`
-    
-        <div class="navBar">
-            <button onmousedown="changeView(${null})" ${model.app.page == null ? "disabled" : ""}>Main</button>
-            <button onmousedown="changeView('upgrades')" ${model.app.page == "upgrades" ? "disabled" : ""}>Upgrades</button>
-        </div>
-    
+function createManaCounterHtml() {
+    return /*HTML*/ `
+    <div class="playerMoney">${Math.floor(model.player.money)} mana</div>
     `;
 }
 
-function createCounterAndClickableCircleHtml() {
+function createClickableOrbHtml() {
     return /*HTML*/ `
-        <div class="playerMoney">${Math.floor(model.player.money)} mana</div>
-        <div class="orbImgContainer">
-            <img onmouseenter="clickDivEnter()" onmouseout="clickDivOut()" class="clickableImg" 
-            src="img/orb.png" draggable="false"/>
-            <img src="img/Orb_Pedestal_1.png" class="orbPedestal"/>
-        </div>
+            <div class="orbImgContainer">
+                <img onmouseenter="clickDivEnter()" onmouseout="clickDivOut()" class="clickableImg" 
+                src="img/orb.png" draggable="false"/>
+                <img src="img/Orb_Pedestal_1.png" class="orbPedestal"/>
+            </div>
     `;
 }
 
 function createUpgradesHtml() {
-    const autoClicker = model.upgrades[0];
     html = "";
-    html += /*HTML*/ `
-        <div class="upgradesContainer">
-            <div>${autoClicker.amount} Pylons</div>
-            <div>${autoClicker.amount * autoClicker.strength} Mana pr. sec</div>
-            <div>Price: ${autoClicker.price} Mana</div>
-            <button onmousedown="buyAutoClicker()">Buy Pylons</button>
+    html += `<div class="upgradesContainer">`;
+    for (let upgrade of model.upgrades) {
+        html += /*HTML*/ `
+        <div class="centerHorizontally">
+            <div>${upgrade.amount} ${upgrade.name}</div>
+            <div>${upgrade.amount * upgrade.strength} Mana pr. sec</div>
+            <div>${upgrade.price} Mana</div>
+            <button onmousedown="buyAutoClicker(${upgrade.id})">Make ${upgrade.name}</button>
         </div>
     `;
+    }
+    html += `</div>`;
     return html;
 }
 
-
+function createTableHtml() {
+    return /*HTML*/ `
+        <img class="table"  src="img/Alchemy_station.webp"/>
+    `;
+}

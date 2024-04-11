@@ -1,44 +1,52 @@
 body {
-    background-color: rgb(69, 69, 69);
     margin: 0;
+    background-image: url(img/TileablePixelArtWood.png);
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .clickableImg {
     position: absolute;
-    width: 15rem;
-    height: 15rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
     z-index: 1;
-    margin-top: -9.5rem;
-    margin-left: 2.5rem;
+    margin-top: -14rem;
 }
 
 .clickableImg:hover {
     filter: brightness(110%);
-    box-shadow: -1rem -1rem 3rem 1rem rgba(137, 43, 226, 0.3);
+    box-shadow: 0rem 0rem 3rem 1rem rgba(137, 43, 226, 0.3);
     background-color: rgba(137, 43, 226, 0.22);
 }
 
 .orbPedestal {
     position: relative;
-    scale: 70%;
+    scale: 85%;
     z-index: 0;
 }
 
 .orbImgContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 15rem;
 }
 
 .playerMoney {
     font-size: 3rem;
     margin: 3rem;
+    background-color: rgba(112, 128, 144, 0.9);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 23rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
-.viewContainer {
+.centerHorizontally {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,9 +54,8 @@ body {
 
 .navBar {
     width: 100%;
-    height: 5rem;
+    height: 6rem;
     background-color: lightgrey;
-
 
     display: flex;
     align-items: center;
@@ -56,21 +63,73 @@ body {
 }
 
 .navBar>button {
-    width: 6rem;
-    height: 3rem;
-    margin: 2rem;
+    width: 7rem;
+    height: 3.5rem;
+    margin: 2.5rem;
+}
+
+
+.upgradesContainer {
+    background-color: rgba(119, 136, 153, 0.9);
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 14rem);
+    grid-template-rows: repeat(3, 11rem);
+    position: absolute;
+    margin-left: -29%;
+    margin-top: 2.5%;
+    padding: 1%;
+    border-radius: 2rem;
+    font-size: 125%;
+}
+
+.upgradesContainer>.centerHorizontally>button {
+    font-size: 85%;
+}
+
+.table {
+    z-index: 0;
+    margin: 0% 2%;
+    height: 25rem;
 }
 
 .buff {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 3rem;
 }
 
-.upgradesContainer {
-    display: flex;
-    flex-direction: column;
+.buff>button {
+    min-width: 5rem;
+}
+
+.buffContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 12rem);
+    grid-template-rows: repeat(2, 11rem);
+    align-items: center;
+    background-color: rgba(119, 136, 153, 0.9);
+    margin-top: 2rem;
+    border-radius: 2rem;
+    font-size: 120%;
+    z-index: 1;
+}
+
+.researchedContainer {
+    display: grid;
     text-align: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 12rem);
+    grid-template-rows: repeat(2, 12rem);
+
+    background-color: rgba(119, 136, 153, 0.9);
+    border-radius: 2rem;
+    font-size: 120%;
+    z-index: 1;
+}
+
+.upgradesViewContainer {
+    display: flex;
+    justify-content: center;
 }

@@ -1,6 +1,7 @@
 function updateView() {
     if (model.app.page == null) mainView();
     else if (model.app.page == "upgrades") upgradesView();
+    else if (model.app.page == "stats") statsView();
 }
 
 function findUpgrade(upgradeId) {
@@ -33,4 +34,16 @@ function changeView(view) {
 
 function saveGame() {
     localStorage.setItem('model', JSON.stringify(model));
+}
+
+function createNavBar() {
+    return /*HTML*/`
+    
+        <div class="navBar">
+        <button onmousedown="changeView('stats')" ${model.app.page == "stats" ? "disabled" : ""}>Stats</button>
+            <button onmousedown="changeView(${null})" ${model.app.page == null ? "disabled" : ""}>Main</button>
+            <button onmousedown="changeView('upgrades')" ${model.app.page == "upgrades" ? "disabled" : ""}>Upgrades</button>
+        </div>
+    
+    `;
 }

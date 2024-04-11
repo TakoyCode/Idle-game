@@ -11,9 +11,10 @@ function Game() {
 
 function gameUpgrades() {
     let payout = 0;
-    const autoClicker = model.upgrades[0];
-    if (autoClicker.amount > 0) {
-        payout += (autoClicker.amount * autoClicker.strength) / 10;
+    for (upgrade of model.upgrades) {
+        if (upgrade.amount > 0) {
+            payout += (upgrade.amount * upgrade.strength) / 10;
+        }
     }
     return payout;
 }
@@ -33,13 +34,13 @@ function clickDivOut() {
     updateView();
 }
 
-function buyAutoClicker() {
-    const autoClicker = model.upgrades[0];
-    if (model.player.money < autoClicker.price) return;
+function buyAutoClicker(upgradeId) {
+    const upgrade = findUpgrade(upgradeId);
+    if (model.player.money < upgrade.price) return;
 
-    model.player.money = model.player.money - autoClicker.price;
-    autoClicker.amount++;
-    autoClicker.price = autoClicker.price + Math.floor((autoClicker.price / 10) * Math.exp(1));
+    model.player.money = model.player.money - upgrade.price;
+    upgrade.amount++;
+    upgrade.price = upgrade.price + Math.floor(upgrade.price * 0.25);
     updateView();
 }
 
@@ -49,7 +50,7 @@ function buyBuff(buffiD, upgradeId) {
 
     if (model.player.money < buff.price || buff.unlocked) return;
     model.player.money -= buff.price;
-    upgrade.strength = buff.buff;
+    upgrade.strength = upgrade.strength * buff.buffMulti;
     buff.unlocked = true;
     updateView();
 }
