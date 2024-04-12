@@ -32,7 +32,7 @@ const startmodel = {
         alchemyTable = {
             id: 3,
             name: "Alchemy Tables",
-            amount: 0,
+            amount: 500,
             price: 0,
             strength: 16,
         },
