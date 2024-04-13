@@ -41,8 +41,8 @@ function createUpgradesHtml() {
         html += /*HTML*/ `
         <div class="centerHorizontally">
             <div>${upgrade.amount} ${upgrade.name}</div>
-            <div>${upgrade.amount * upgrade.strength} Mana pr. sec</div>
-            <div>${upgrade.price} Mana</div>
+            <div>${upgrade.amount * upgrade.strength} mana pr. sec</div>
+            <div>${upgrade.price} mana</div>
             <button onmousedown="buyAutoClicker(${upgrade.id})">Make ${upgrade.name}</button>
         </div>
     `;

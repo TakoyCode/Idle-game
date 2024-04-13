@@ -119,17 +119,41 @@ body {
 .researchedContainer {
     display: grid;
     text-align: center;
-    align-items: center;
-    grid-template-columns: repeat(3, 12rem);
-    grid-template-rows: repeat(2, 12rem);
-
+    align-items: start;
+    padding: 3rem;
+    grid-template-columns: repeat(6, 12rem);
+    grid-template-rows: repeat(1, 25rem);
     background-color: rgba(119, 136, 153, 0.9);
     border-radius: 2rem;
-    font-size: 120%;
+    font-size: 100%;
     z-index: 1;
+}
+
+.researchedCategoryContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+}
+
+.ResearchedBuffsTitle {
+    font-size: 2rem;
+    margin: 0.5rem;
+    background-color: rgba(112, 128, 144, 0.9);
+    border-radius: 0.5rem;
+    padding: 1rem;
 }
 
 .upgradesViewContainer {
     display: flex;
     justify-content: center;
+}
+
+.totalManaDiv {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    background-color: rgba(112, 128, 144, 0.9);
+    border-radius: 0.5rem;
+    padding: 1rem;
 }

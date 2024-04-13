@@ -5,7 +5,9 @@ function Game() {
     let payout = 0;
     payout += gameUpgrades();
     model.player.money += payout;
+    model.player.totalManaGathered += payout;
     if (payout > 0) updateView();
+    if (findBuff(55).unlocked) youWonAlert();
     saveGame();
 }
 
@@ -22,7 +24,8 @@ function gameUpgrades() {
 function clickDivEnter() {
     if (model.player.clicker.intervalActive) return;
     model.player.clicker.intervalId = setInterval(() => {
-        model.player.money = model.player.money + model.player.clicker.cursorStrength;
+        model.player.money += model.player.clicker.cursorStrength;
+        model.player.totalManaGathered += model.player.clicker.cursorStrength;
         updateView();
     }, 1000);
     model.player.clicker.intervalActive = true;
@@ -53,4 +56,8 @@ function buyBuff(buffiD, upgradeId) {
     upgrade.strength = upgrade.strength * buff.buffMulti;
     buff.unlocked = true;
     updateView();
+}
+
+function youWonAlert() {
+    alert("Congrats you have completed the game!");
 }

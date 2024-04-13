@@ -1,5 +1,5 @@
 function updateView() {
-    if (model.app.page == null) mainView();
+    if (model.app.page == null || model.app.page == "main") mainView();
     else if (model.app.page == "upgrades") upgradesView();
     else if (model.app.page == "stats") statsView();
 }
