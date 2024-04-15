@@ -76,7 +76,7 @@ function createSaveStateButtonsHtml() {
                     </div>
                 </div>
                 <div style="display: ${model.navbar.saveDropdown ? "" : "none"}" class="saveConfirmation">
-                    <div>Saved game!</div>
+                    <div>Saved the game!</div>
                 </div>
         </div>
 
