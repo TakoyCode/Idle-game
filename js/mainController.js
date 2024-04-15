@@ -1,6 +1,10 @@
 // Controller
 
-setInterval(Game, 100);
+startGame();
+function startGame() {
+    model.game.intervalId = setInterval(Game, 100);
+}
+
 function Game() {
     let payout = 0;
     payout += gameUpgrades();
@@ -29,11 +33,14 @@ function clickDivEnter() {
         updateView();
     }, 1000);
     model.player.clicker.intervalActive = true;
+    model.player.clicker.sparklesIsOn = true;
+    updateView();
 }
 
 function clickDivOut() {
     clearInterval(model.player.clicker.intervalId);
     model.player.clicker.intervalActive = false;
+    model.player.clicker.sparklesIsOn = false;
     updateView();
 }
 
@@ -43,7 +50,7 @@ function buyAutoClicker(upgradeId) {
 
     model.player.money = model.player.money - upgrade.price;
     upgrade.amount++;
-    upgrade.price = upgrade.price + Math.floor(upgrade.price * 0.25);
+    upgrade.price += Math.floor(upgrade.price * 0.2);
     updateView();
 }
 

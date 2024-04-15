@@ -4,6 +4,15 @@ const startmodel = {
         page: null,
     },
 
+    navbar: {
+        confirmDropdown: false,
+        saveDropdown: false,
+    },
+
+    game: {
+        intervalId: null,
+    },
+
     player: {
         money: 0,
         totalManaGathered: 0,
@@ -11,6 +20,7 @@ const startmodel = {
             cursorStrength: 1,
             intervalId: null,
             intervalActive: false,
+            sparklesIsOn: false,
         },
     },
 
@@ -373,9 +383,8 @@ const startmodel = {
             },
         ],
     ],
-
 };
 
-let newUpdate = true;
+let newUpdate = false;
 const savedmodel = newUpdate ? "" : JSON.parse(localStorage.getItem('model'));
 const model = savedmodel ? savedmodel : startmodel;

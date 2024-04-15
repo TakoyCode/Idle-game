@@ -1,4 +1,4 @@
-function upgradesView() {
+function buffsView() {
     const app = document.getElementById('app');
     let html = ``;
 
@@ -7,7 +7,9 @@ function upgradesView() {
         ${createNavBar()}
         ${createManaCounterHtml()}
         <div class="upgradesViewContainer">
-            ${createBuffHtml()}
+            <div class="buffContainer">
+                ${createBuffHtml()}
+            </div>
             ${createTableHtml()}
         </div>
     </div>
@@ -17,7 +19,6 @@ function upgradesView() {
 
 function createBuffHtml() {
     let html = "";
-    html += `<div class="buffContainer">`;
     for (let catergories of model.buffs) {
         let lastTierUnlocked = 0;
 
@@ -38,6 +39,5 @@ function createBuffHtml() {
             }
         }
     }
-    html += `</div>`;
     return html;
 }

@@ -7,7 +7,7 @@ function mainView() {
     <div class="centerHorizontally">
             ${createNavBar()}
             <div style="display: flex;">
-                ${createUpgradesHtml()}
+                    ${createUpgradesHtml()}
                 <div class="centerHorizontally">
                 ${createManaCounterHtml()}
                 ${createClickableOrbHtml()}
@@ -27,6 +27,8 @@ function createManaCounterHtml() {
 function createClickableOrbHtml() {
     return /*HTML*/ `
             <div class="orbImgContainer">
+                <img src="img/Sparkle.gif" class="sparkle" style="margin: -7rem -1rem; display:${model.player.clicker.sparklesIsOn ? "" : "none"};">
+                <img src="img/Sparkle.gif" class="sparkle" style="margin: -12rem 14rem; display:${model.player.clicker.sparklesIsOn ? "" : "none"};">
                 <img onmouseenter="clickDivEnter()" onmouseout="clickDivOut()" class="clickableImg" 
                 src="img/orb.png" draggable="false"/>
                 <img src="img/Orb_Pedestal_1.png" class="orbPedestal"/>

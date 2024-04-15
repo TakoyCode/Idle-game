@@ -7,7 +7,9 @@ function statsView() {
             ${createNavBar()}
             ${createStatsHtml()}
             <div class="ResearchedBuffsTitle">Researched Buffs</div>
-            ${createResearchedBuffsHtml()}
+            <div class="researchedContainer">
+                ${createResearchedBuffsHtml()}
+            </div>
     </div>
     `;
     app.innerHTML = html;
@@ -23,7 +25,6 @@ function createStatsHtml() {
 
 function createResearchedBuffsHtml() {
     html = "";
-    html += `<div class="researchedContainer">`;
     for (let category of model.buffs) {
         html += `<div class="researchedCategoryContainer">`;
         for (let buff of category) {
@@ -40,6 +41,5 @@ function createResearchedBuffsHtml() {
         }
         html += `</div>`;
     }
-    html += `</div>`;
     return html;
 }

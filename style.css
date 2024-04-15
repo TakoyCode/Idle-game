@@ -5,6 +5,10 @@ body {
     background-attachment: fixed;
 }
 
+button {
+    cursor: pointer;
+}
+
 .clickableImg {
     position: absolute;
     width: 20rem;
@@ -20,6 +24,13 @@ body {
     filter: brightness(110%);
     box-shadow: 0rem 0rem 3rem 1rem rgba(137, 43, 226, 0.3);
     background-color: rgba(137, 43, 226, 0.22);
+}
+
+.sparkle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    width: 4%;
 }
 
 .orbPedestal {
@@ -60,6 +71,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .navBar>button {
@@ -68,6 +80,71 @@ body {
     margin: 2.5rem;
 }
 
+.saveStateButtonsContainer {
+    position: absolute;
+    margin-left: 90rem;
+}
+
+.saveButton {
+    width: 3.5rem;
+    height: 1.75rem;
+    border-radius: 0.4rem;
+    border: 0;
+    background-color: hsl(120, 100%, 22%);
+    color: rgb(211, 211, 211);
+}
+
+.saveButton:hover {
+    background-color: darkgreen;
+}
+
+.resetButton {
+    width: 3.5rem;
+    height: 1.75rem;
+    border-radius: 0.4rem;
+    border: 0;
+    margin: 2rem;
+    background-color: darkred;
+    color: rgb(211, 211, 211);
+}
+
+.resetButton:hover {
+    background-color: hsl(0, 100%, 24%);
+}
+
+.areYouSureContainer {
+    background-color: rgb(211, 211, 211);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.areYouSureContainer>div>button {
+    margin: 0.5rem;
+    border-radius: 0.2rem;
+    border: 0;
+}
+
+.areYouSureYes {
+    background-color: darkred;
+    color: rgb(211, 211, 211);
+}
+
+.areYouSureYes:hover {
+    background-color: hsl(0, 100%, 24%);
+}
+
+.saveConfirmation {
+    position: absolute;
+    align-items: center;
+    border-radius: 1rem;
+    font-size: 90%;
+    margin: -3.5rem -8rem;
+}
 
 .upgradesContainer {
     background-color: rgba(119, 136, 153, 0.9);
