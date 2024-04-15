@@ -37,10 +37,10 @@ function saveGame() {
     updateView();
 }
 function resetGame() {
-    localStorage.clear();
-    location.reload();
+    clearInterval(model.game.intervalId);
+    localStorage.removeItem('model');
     model.navbar.confirmDropdown = false;
-    updateView();
+    location.reload();
 }
 
 function createNavBar() {
