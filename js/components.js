@@ -39,6 +39,8 @@ function saveGame() {
 function resetGame() {
     localStorage.clear();
     location.reload();
+    model.navbar.confirmDropdown = false;
+    updateView();
 }
 
 function createNavBar() {
@@ -69,7 +71,7 @@ function createSaveStateButtonsHtml() {
                 <div style="display: ${model.navbar.confirmDropdown ? "" : "none"}" class="areYouSureContainer">
                     <div>Are you sure?</div>
                     <div>
-                        <button class="areYouSureYes" onmousedown="resetGame()">Yes</button>
+                        <button class="areYouSureYes" onmousedown="resetGame();">Yes</button>
                         <button onmousedown="model.navbar.confirmDropdown = false; updateView();">No</button>
                     </div>
                 </div>
