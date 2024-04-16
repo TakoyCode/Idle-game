@@ -11,8 +11,6 @@ function Game() {
     model.player.money += payout;
     model.player.totalManaGathered += payout;
     if (payout > 0) updateView();
-    if (findBuff(55).unlocked) youWonAlert();
-    saveGame();
 }
 
 function gameUpgrades() {
@@ -62,9 +60,10 @@ function buyBuff(buffiD, upgradeId) {
     model.player.money -= buff.price;
     upgrade.strength = upgrade.strength * buff.buffMulti;
     buff.unlocked = true;
+    if (findBuff(55).unlocked) youWonAlert();
     updateView();
 }
 
 function youWonAlert() {
-    alert("Congrats you have completed the game!");
+    alert("Congrats you have completed the game! Ty for playing it!");
 }

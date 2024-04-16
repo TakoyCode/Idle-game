@@ -385,6 +385,5 @@ const startmodel = {
     ],
 };
 
-let newUpdate = false;
-const savedmodel = newUpdate ? "" : JSON.parse(localStorage.getItem('model'));
-const model = savedmodel ? savedmodel : startmodel;
+const savedmodel = JSON.parse(localStorage.getItem('model'));
+let model = savedmodel ? savedmodel : startmodel;

@@ -32,15 +32,16 @@ function changeView(view) {
     updateView();
 }
 
+
 function saveGame() {
     localStorage.setItem('model', JSON.stringify(model));
     updateView();
 }
 function resetGame() {
-    clearInterval(model.game.intervalId);
     localStorage.removeItem('model');
+    model = startmodel;
     model.navbar.confirmDropdown = false;
-    location.reload();
+    updateView();
 }
 
 function createNavBar() {
