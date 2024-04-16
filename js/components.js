@@ -35,8 +35,11 @@ function changeView(view) {
 
 function saveGame() {
     localStorage.setItem('model', JSON.stringify(model));
+    model.navbar.saveDropdown = true;
+    setTimeout(() => { model.navbar.saveDropdown = false; updateView(); }, 2000);
     updateView();
 }
+
 function resetGame() {
     localStorage.removeItem('model');
     model = startmodel;
@@ -62,8 +65,7 @@ function createSaveStateButtonsHtml() {
     return /*HTML*/ `
         
         <div class="saveStateButtonsContainer">
-                <button class="saveButton" onmousedown="saveGame(); model.navbar.saveDropdown = true; 
-                    setTimeout(() => { model.navbar.saveDropdown = false; updateView() }, 2000)">Save</button>
+                <button class="saveButton" onmousedown="saveGame();">Save</button>
                 
                 <button class="resetButton" onmousedown="model.navbar.confirmDropdown = !model.navbar.confirmDropdown;
                     updateView();">Reset</button>
